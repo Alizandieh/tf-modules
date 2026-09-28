@@ -14,7 +14,7 @@ output "external_secrets_role_arn" {
 }
 
 output "saha_s3_role_arn" {
-  description = "The ARN of the Bridge application IAM role"
+  description = "The ARN of the application IAM role"
   value       = try(aws_iam_role.saha_s3[0].arn, null)
 }
 

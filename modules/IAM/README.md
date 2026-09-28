@@ -91,5 +91,5 @@ No modules.
 | <a name="output_external_secrets_role_arn"></a> [external\_secrets\_role\_arn](#output\_external\_secrets\_role\_arn) | The ARN of the External Secrets IAM role |
 | <a name="output_grafana_role_arn"></a> [grafana\_role\_arn](#output\_grafana\_role\_arn) | The ARN of the Grafana IAM role |
 | <a name="output_loki_s3_role_arn"></a> [loki\_s3\_role\_arn](#output\_loki\_s3\_role\_arn) | The ARN of the Loki IAM role |
-| <a name="output_saha_s3_role_arn"></a> [saha\_s3\_role\_arn](#output\_saha\_s3\_role\_arn) | The ARN of the Bridge application IAM role |
+| <a name="output_saha_s3_role_arn"></a> [saha\_s3\_role\_arn](#output\_saha\_s3\_role\_arn) | The ARN of the application IAM role |
 <!-- END_TF_DOCS -->
