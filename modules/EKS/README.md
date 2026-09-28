@@ -41,11 +41,6 @@ No requirements.
 | ---- | ----------- | ---- | ------- | :------: |
 | <a name="input_ami_id"></a> [ami\_id](#input\_ami\_id) | The AMI from which to launch the instance | `string` | `""` | no |
 | <a name="input_ami_type"></a> [ami\_type](#input\_ami\_type) | The AMI type to use for the node group | `string` | n/a | yes |
-| <a name="input_bridge_nodes_desired_size"></a> [bridge\_nodes\_desired\_size](#input\_bridge\_nodes\_desired\_size) | The desired capacity of the autoscaling group | `number` | n/a | yes |
-| <a name="input_bridge_nodes_enable_monitoring"></a> [bridge\_nodes\_enable\_monitoring](#input\_bridge\_nodes\_enable\_monitoring) | Enables/disables detailed monitoring | `bool` | n/a | yes |
-| <a name="input_bridge_nodes_instance_type"></a> [bridge\_nodes\_instance\_type](#input\_bridge\_nodes\_instance\_type) | The instance type to use for the node group | `string` | n/a | yes |
-| <a name="input_bridge_nodes_max_size"></a> [bridge\_nodes\_max\_size](#input\_bridge\_nodes\_max\_size) | The maximum size of the autoscaling group | `number` | n/a | yes |
-| <a name="input_bridge_nodes_min_size"></a> [bridge\_nodes\_min\_size](#input\_bridge\_nodes\_min\_size) | The minimum size of the autoscaling group | `number` | n/a | yes |
 | <a name="input_cluster_addons"></a> [cluster\_addons](#input\_cluster\_addons) | Map of cluster addon configurations to enable for the cluster. Addon name can be the map keys or set with `name` | `any` | n/a | yes |
 | <a name="input_cluster_admin_role_arn"></a> [cluster\_admin\_role\_arn](#input\_cluster\_admin\_role\_arn) | ARN of the IAM role to be granted cluster admin access | `string` | n/a | yes |
 | <a name="input_cluster_endpoint_public_access"></a> [cluster\_endpoint\_public\_access](#input\_cluster\_endpoint\_public\_access) | Indicates whether or not the Amazon EKS public API server endpoint is enabled | `bool` | n/a | yes |
@@ -61,6 +56,11 @@ No requirements.
 | <a name="input_node_root_volume_size"></a> [node\_root\_volume\_size](#input\_node\_root\_volume\_size) | The size of the root volume in gb | `string` | `"10"` | no |
 | <a name="input_node_security_group_additional_rules"></a> [node\_security\_group\_additional\_rules](#input\_node\_security\_group\_additional\_rules) | List of additional security group rules to add to the node security group created. Set `source_cluster_security_group = true` inside rules to set the `cluster_security_group` as source | `any` | `{}` | no |
 | <a name="input_platform"></a> [platform](#input\_platform) | The platform which the VPC will be created for. | `string` | n/a | yes |
+| <a name="input_saha_nodes_desired_size"></a> [saha\_nodes\_desired\_size](#input\_saha\_nodes\_desired\_size) | The desired capacity of the autoscaling group | `number` | n/a | yes |
+| <a name="input_saha_nodes_enable_monitoring"></a> [saha\_nodes\_enable\_monitoring](#input\_saha\_nodes\_enable\_monitoring) | Enables/disables detailed monitoring | `bool` | n/a | yes |
+| <a name="input_saha_nodes_instance_type"></a> [saha\_nodes\_instance\_type](#input\_saha\_nodes\_instance\_type) | The instance type to use for the node group | `string` | n/a | yes |
+| <a name="input_saha_nodes_max_size"></a> [saha\_nodes\_max\_size](#input\_saha\_nodes\_max\_size) | The maximum size of the autoscaling group | `number` | n/a | yes |
+| <a name="input_saha_nodes_min_size"></a> [saha\_nodes\_min\_size](#input\_saha\_nodes\_min\_size) | The minimum size of the autoscaling group | `number` | n/a | yes |
 | <a name="input_security_group_additional_rules"></a> [security\_group\_additional\_rules](#input\_security\_group\_additional\_rules) | List of additional security group rules to add to the cluster security group created. Set `source_node_security_group = true` inside rules to set the `node_security_group` as source | `any` | `{}` | no |
 | <a name="input_subnet_ids"></a> [subnet\_ids](#input\_subnet\_ids) | List of subnet IDs where resources will be deployed | `list(string)` | n/a | yes |
 | <a name="input_tags"></a> [tags](#input\_tags) | A map of tags to add to all resources | `map(string)` | `{}` | no |

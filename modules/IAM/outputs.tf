@@ -13,9 +13,9 @@ output "external_secrets_role_arn" {
   value       = try(aws_iam_role.external_secrets[0].arn, null)
 }
 
-output "bridge_s3_role_arn" {
+output "saha_s3_role_arn" {
   description = "The ARN of the Bridge application IAM role"
-  value       = try(aws_iam_role.bridge_s3[0].arn, null)
+  value       = try(aws_iam_role.saha_s3[0].arn, null)
 }
 
 output "loki_s3_role_arn" {

@@ -45,19 +45,19 @@ variable "loki_ruler_bucket_name" {
   default     = ""
 }
 
-variable "bridge_s3_role" {
+variable "saha_s3_role" {
   description = "Whether to create IAM role for Bridge backend"
   type        = bool
   default     = false
 }
 
-variable "bridge_namespace" {
+variable "saha_namespace" {
   description = "The K8s namespace where the Bridge application is deployed"
   type        = string
   default     = ""
 }
 
-variable "bridge_bucket_name" {
+variable "saha_bucket_name" {
   description = "The Bridge application s3 bucket"
   type        = string
   default     = ""

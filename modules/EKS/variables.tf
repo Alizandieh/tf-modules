@@ -49,27 +49,27 @@ variable "enabled_log_types" {
   type        = list(string)
 }
 
-variable "bridge_nodes_instance_type" {
+variable "saha_nodes_instance_type" {
   description = "The instance type to use for the node group"
   type        = string
 }
 
-variable "bridge_nodes_min_size" {
+variable "saha_nodes_min_size" {
   description = "The minimum size of the autoscaling group"
   type        = number
 }
 
-variable "bridge_nodes_max_size" {
+variable "saha_nodes_max_size" {
   description = "The maximum size of the autoscaling group"
   type        = number
 }
 
-variable "bridge_nodes_desired_size" {
+variable "saha_nodes_desired_size" {
   description = "The desired capacity of the autoscaling group"
   type        = number
 }
 
-variable "bridge_nodes_enable_monitoring" {
+variable "saha_nodes_enable_monitoring" {
   description = "Enables/disables detailed monitoring"
   type        = bool
 }

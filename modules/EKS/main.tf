@@ -1,5 +1,5 @@
 locals {
-  bridge_nodes_subnet_ids = [
+  saha_nodes_subnet_ids = [
     for s in data.aws_subnet.private :
     s.id if s.availability_zone == "eu-west-1a"
   ]
@@ -31,16 +31,16 @@ module "eks" {
   subnet_ids = var.subnet_ids
 
   self_managed_node_groups = {
-    bridge_nodes = {
-      subnet_ids    = local.bridge_nodes_subnet_ids
+    saha_nodes = {
+      subnet_ids    = local.saha_nodes_subnet_ids
       ami_type      = var.ami_type
       ami_id        = var.ami_id
-      instance_type = var.bridge_nodes_instance_type
+      instance_type = var.saha_nodes_instance_type
 
-      min_size          = var.bridge_nodes_min_size
-      max_size          = var.bridge_nodes_max_size
-      desired_size      = var.bridge_nodes_desired_size
-      enable_monitoring = var.bridge_nodes_enable_monitoring
+      min_size          = var.saha_nodes_min_size
+      max_size          = var.saha_nodes_max_size
+      desired_size      = var.saha_nodes_desired_size
+      enable_monitoring = var.saha_nodes_enable_monitoring
 
       user_data_template_path      = var.user_data_template_path
       iam_role_additional_policies = var.node_iam_role_additional_policies
