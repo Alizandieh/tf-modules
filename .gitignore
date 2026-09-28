@@ -1,0 +1,11 @@
+**/.terraform/**/*
+**/out/**/*
+
+modules/**/src/vendor/
+
+/modules/*/terraform.tfstate
+/modules/*/terraform.tfstate.backup
+/modules/*/.terraform.tfstate.lock.info
+/modules/*/.terraform.lock.hcl
+/modules/*/plan.out
+/modules/*/plan.out.json
