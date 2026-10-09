@@ -23,27 +23,9 @@ variable "private_subnet_ids" {
   type        = list(string)
 }
 
-variable "nodes_subnet_type" {
-  description = "Which subnets to place the nodes in: \"private\" or \"public\"."
-  type        = string
-  default     = "private"
-
-  validation {
-    condition     = contains(["private", "public"], var.nodes_subnet_type)
-    error_message = "nodes_subnet_type must be either \"private\" or \"public\"."
-  }
-}
-
-variable "saha_nodes_az" {
-  description = "Availability zone for the saha nodes."
-  type        = string
-  default     = "eu-west-1a"
-}
-
-variable "devops_nodes_az" {
-  description = "Availability zone for the devops nodes."
-  type        = string
-  default     = "eu-west-1b"
+variable "public_subnet_ids" {
+  description = "List of public subnet IDs where other resources can be created in"
+  type        = list(string)
 }
 
 variable "cluster_addons" {
