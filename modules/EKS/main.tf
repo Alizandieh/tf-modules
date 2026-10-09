@@ -1,15 +1,3 @@
-locals {
-  saha_nodes_subnet_ids = [
-    for s in data.aws_subnet.private :
-    s.id if s.availability_zone == "eu-west-1a"
-  ]
-  devops_nodes_subnet_ids = [
-    for s in data.aws_subnet.private :
-    s.id if s.availability_zone == "eu-west-1b"
-  ]
-}
-
-
 module "eks" {
   # source  = "terraform-aws-modules/eks/aws"
   # version = "~> 21.15.1"
@@ -28,7 +16,7 @@ module "eks" {
   addons = var.cluster_addons
 
   vpc_id     = var.vpc_id
-  subnet_ids = var.subnet_ids
+  subnet_ids = var.private_subnet_ids
 
   self_managed_node_groups = {
     saha_nodes = {

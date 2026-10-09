@@ -18,9 +18,32 @@ variable "vpc_id" {
   type        = string
 }
 
-variable "subnet_ids" {
-  description = "List of subnet IDs where resources will be deployed"
+variable "private_subnet_ids" {
+  description = "List of private subnet IDs where EKS control plane will be created in"
   type        = list(string)
+}
+
+variable "nodes_subnet_type" {
+  description = "Which subnets to place the nodes in: \"private\" or \"public\"."
+  type        = string
+  default     = "private"
+
+  validation {
+    condition     = contains(["private", "public"], var.subnet_type)
+    error_message = "subnet_type must be either \"private\" or \"public\"."
+  }
+}
+
+variable "saha_nodes_az" {
+  description = "Availability zone for the saha nodes."
+  type        = string
+  default     = "eu-west-1a"
+}
+
+variable "devops_nodes_az" {
+  description = "Availability zone for the devops nodes."
+  type        = string
+  default     = "eu-west-1b"
 }
 
 variable "cluster_addons" {

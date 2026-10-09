@@ -34,6 +34,7 @@ No requirements.
 | [aws_availability_zones.region_azs](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/data-sources/availability_zones) | data source |
 | [aws_region.current](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/data-sources/region) | data source |
 | [aws_subnet.private](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/data-sources/subnet) | data source |
+| [aws_subnet.public](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/data-sources/subnet) | data source |
 
 ## Inputs
 
@@ -46,6 +47,7 @@ No requirements.
 | <a name="input_cluster_endpoint_public_access"></a> [cluster\_endpoint\_public\_access](#input\_cluster\_endpoint\_public\_access) | Indicates whether or not the Amazon EKS public API server endpoint is enabled | `bool` | n/a | yes |
 | <a name="input_cluster_version"></a> [cluster\_version](#input\_cluster\_version) | The EKS cluster version. | `string` | n/a | yes |
 | <a name="input_create_cloudwatch_log_group"></a> [create\_cloudwatch\_log\_group](#input\_create\_cloudwatch\_log\_group) | Determines whether a log group is created by this module for the cluster logs. If not, AWS will automatically create one if logging is enabled | `bool` | `true` | no |
+| <a name="input_devops_nodes_az"></a> [devops\_nodes\_az](#input\_devops\_nodes\_az) | Availability zone for the devops nodes. | `string` | `"eu-west-1b"` | no |
 | <a name="input_devops_nodes_desired_size"></a> [devops\_nodes\_desired\_size](#input\_devops\_nodes\_desired\_size) | The desired capacity of the autoscaling group | `number` | n/a | yes |
 | <a name="input_devops_nodes_enable_monitoring"></a> [devops\_nodes\_enable\_monitoring](#input\_devops\_nodes\_enable\_monitoring) | Enables/disables detailed monitoring | `bool` | n/a | yes |
 | <a name="input_devops_nodes_instance_type"></a> [devops\_nodes\_instance\_type](#input\_devops\_nodes\_instance\_type) | The instance type to use for the node group | `string` | n/a | yes |
@@ -55,14 +57,16 @@ No requirements.
 | <a name="input_node_iam_role_additional_policies"></a> [node\_iam\_role\_additional\_policies](#input\_node\_iam\_role\_additional\_policies) | Additional policies to be added to the EKS Nodes IAM role | `map(string)` | `{}` | no |
 | <a name="input_node_root_volume_size"></a> [node\_root\_volume\_size](#input\_node\_root\_volume\_size) | The size of the root volume in gb | `string` | `"10"` | no |
 | <a name="input_node_security_group_additional_rules"></a> [node\_security\_group\_additional\_rules](#input\_node\_security\_group\_additional\_rules) | List of additional security group rules to add to the node security group created. Set `source_cluster_security_group = true` inside rules to set the `cluster_security_group` as source | `any` | `{}` | no |
+| <a name="input_nodes_subnet_type"></a> [nodes\_subnet\_type](#input\_nodes\_subnet\_type) | Which subnets to place the nodes in: "private" or "public". | `string` | `"private"` | no |
 | <a name="input_platform"></a> [platform](#input\_platform) | The platform which the VPC will be created for. | `string` | n/a | yes |
+| <a name="input_private_subnet_ids"></a> [private\_subnet\_ids](#input\_private\_subnet\_ids) | List of private subnet IDs where EKS control plane will be created in | `list(string)` | n/a | yes |
+| <a name="input_saha_nodes_az"></a> [saha\_nodes\_az](#input\_saha\_nodes\_az) | Availability zone for the saha nodes. | `string` | `"eu-west-1a"` | no |
 | <a name="input_saha_nodes_desired_size"></a> [saha\_nodes\_desired\_size](#input\_saha\_nodes\_desired\_size) | The desired capacity of the autoscaling group | `number` | n/a | yes |
 | <a name="input_saha_nodes_enable_monitoring"></a> [saha\_nodes\_enable\_monitoring](#input\_saha\_nodes\_enable\_monitoring) | Enables/disables detailed monitoring | `bool` | n/a | yes |
 | <a name="input_saha_nodes_instance_type"></a> [saha\_nodes\_instance\_type](#input\_saha\_nodes\_instance\_type) | The instance type to use for the node group | `string` | n/a | yes |
 | <a name="input_saha_nodes_max_size"></a> [saha\_nodes\_max\_size](#input\_saha\_nodes\_max\_size) | The maximum size of the autoscaling group | `number` | n/a | yes |
 | <a name="input_saha_nodes_min_size"></a> [saha\_nodes\_min\_size](#input\_saha\_nodes\_min\_size) | The minimum size of the autoscaling group | `number` | n/a | yes |
 | <a name="input_security_group_additional_rules"></a> [security\_group\_additional\_rules](#input\_security\_group\_additional\_rules) | List of additional security group rules to add to the cluster security group created. Set `source_node_security_group = true` inside rules to set the `node_security_group` as source | `any` | `{}` | no |
-| <a name="input_subnet_ids"></a> [subnet\_ids](#input\_subnet\_ids) | List of subnet IDs where resources will be deployed | `list(string)` | n/a | yes |
 | <a name="input_tags"></a> [tags](#input\_tags) | A map of tags to add to all resources | `map(string)` | `{}` | no |
 | <a name="input_user_data_template_path"></a> [user\_data\_template\_path](#input\_user\_data\_template\_path) | Path to a local, custom user data template file to use when rendering user data | `string` | `""` | no |
 | <a name="input_vpc_id"></a> [vpc\_id](#input\_vpc\_id) | The ID of the VPC where resources will be created | `string` | n/a | yes |
