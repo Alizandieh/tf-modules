@@ -18,13 +18,13 @@ variable "vpc_id" {
   type        = string
 }
 
-variable "private_subnet_ids" {
-  description = "List of private subnet IDs where EKS control plane will be created in"
+variable "cluster_subnet_ids" {
+  description = "List of subnet IDs (private) where EKS control plane will be created in"
   type        = list(string)
 }
 
-variable "public_subnet_ids" {
-  description = "List of public subnet IDs where other resources can be created in"
+variable "nodes_subnet_ids" {
+  description = "List of subnet IDs (private/public) where other resources can be created in"
   type        = list(string)
 }
 

@@ -16,11 +16,11 @@ module "eks" {
   addons = var.cluster_addons
 
   vpc_id     = var.vpc_id
-  subnet_ids = var.private_subnet_ids
+  subnet_ids = var.cluster_subnet_ids
 
   self_managed_node_groups = {
     saha_nodes = {
-      subnet_ids    = var.public_subnet_ids
+      subnet_ids    = var.nodes_subnet_ids
       ami_type      = var.ami_type
       ami_id        = var.ami_id
       instance_type = var.saha_nodes_instance_type
@@ -48,7 +48,7 @@ module "eks" {
       }
     },
     devops_nodes = {
-      subnet_ids    = var.public_subnet_ids
+      subnet_ids    = var.nodes_subnet_ids
       ami_type      = var.ami_type
       ami_id        = var.ami_id
       instance_type = var.devops_nodes_instance_type

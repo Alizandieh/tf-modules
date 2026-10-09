@@ -43,6 +43,7 @@ No requirements.
 | <a name="input_cluster_addons"></a> [cluster\_addons](#input\_cluster\_addons) | Map of cluster addon configurations to enable for the cluster. Addon name can be the map keys or set with `name` | `any` | n/a | yes |
 | <a name="input_cluster_admin_role_arn"></a> [cluster\_admin\_role\_arn](#input\_cluster\_admin\_role\_arn) | ARN of the IAM role to be granted cluster admin access | `string` | n/a | yes |
 | <a name="input_cluster_endpoint_public_access"></a> [cluster\_endpoint\_public\_access](#input\_cluster\_endpoint\_public\_access) | Indicates whether or not the Amazon EKS public API server endpoint is enabled | `bool` | n/a | yes |
+| <a name="input_cluster_subnet_ids"></a> [cluster\_subnet\_ids](#input\_cluster\_subnet\_ids) | List of subnet IDs (private) where EKS control plane will be created in | `list(string)` | n/a | yes |
 | <a name="input_cluster_version"></a> [cluster\_version](#input\_cluster\_version) | The EKS cluster version. | `string` | n/a | yes |
 | <a name="input_create_cloudwatch_log_group"></a> [create\_cloudwatch\_log\_group](#input\_create\_cloudwatch\_log\_group) | Determines whether a log group is created by this module for the cluster logs. If not, AWS will automatically create one if logging is enabled | `bool` | `true` | no |
 | <a name="input_devops_nodes_desired_size"></a> [devops\_nodes\_desired\_size](#input\_devops\_nodes\_desired\_size) | The desired capacity of the autoscaling group | `number` | n/a | yes |
@@ -54,9 +55,8 @@ No requirements.
 | <a name="input_node_iam_role_additional_policies"></a> [node\_iam\_role\_additional\_policies](#input\_node\_iam\_role\_additional\_policies) | Additional policies to be added to the EKS Nodes IAM role | `map(string)` | `{}` | no |
 | <a name="input_node_root_volume_size"></a> [node\_root\_volume\_size](#input\_node\_root\_volume\_size) | The size of the root volume in gb | `string` | `"10"` | no |
 | <a name="input_node_security_group_additional_rules"></a> [node\_security\_group\_additional\_rules](#input\_node\_security\_group\_additional\_rules) | List of additional security group rules to add to the node security group created. Set `source_cluster_security_group = true` inside rules to set the `cluster_security_group` as source | `any` | `{}` | no |
+| <a name="input_nodes_subnet_ids"></a> [nodes\_subnet\_ids](#input\_nodes\_subnet\_ids) | List of subnet IDs (private/public) where other resources can be created in | `list(string)` | n/a | yes |
 | <a name="input_platform"></a> [platform](#input\_platform) | The platform which the VPC will be created for. | `string` | n/a | yes |
-| <a name="input_private_subnet_ids"></a> [private\_subnet\_ids](#input\_private\_subnet\_ids) | List of private subnet IDs where EKS control plane will be created in | `list(string)` | n/a | yes |
-| <a name="input_public_subnet_ids"></a> [public\_subnet\_ids](#input\_public\_subnet\_ids) | List of public subnet IDs where other resources can be created in | `list(string)` | n/a | yes |
 | <a name="input_saha_nodes_desired_size"></a> [saha\_nodes\_desired\_size](#input\_saha\_nodes\_desired\_size) | The desired capacity of the autoscaling group | `number` | n/a | yes |
 | <a name="input_saha_nodes_enable_monitoring"></a> [saha\_nodes\_enable\_monitoring](#input\_saha\_nodes\_enable\_monitoring) | Enables/disables detailed monitoring | `bool` | n/a | yes |
 | <a name="input_saha_nodes_instance_type"></a> [saha\_nodes\_instance\_type](#input\_saha\_nodes\_instance\_type) | The instance type to use for the node group | `string` | n/a | yes |
