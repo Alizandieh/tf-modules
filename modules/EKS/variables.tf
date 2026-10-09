@@ -29,8 +29,8 @@ variable "nodes_subnet_type" {
   default     = "private"
 
   validation {
-    condition     = contains(["private", "public"], var.subnet_type)
-    error_message = "subnet_type must be either \"private\" or \"public\"."
+    condition     = contains(["private", "public"], var.nodes_subnet_type)
+    error_message = "nodes_subnet_type must be either \"private\" or \"public\"."
   }
 }
 
